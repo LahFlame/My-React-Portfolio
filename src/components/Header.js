@@ -1,34 +1,40 @@
 import React, { useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope,faFolder, faPhone } from "@fortawesome/free-solid-svg-icons";
 import {
   faGithub,
   faLinkedin,
   faMedium,
   faStackOverflow,
 } from "@fortawesome/free-brands-svg-icons";
-import { Box, HStack } from "@chakra-ui/react";
+import { Box, HStack,Menu,MenuButton,MenuList,MenuItem,IconButton, Flex, VStack } from "@chakra-ui/react";
+import { HamburgerIcon } from "@chakra-ui/icons";
 
 const socials = [
   {
     icon: faEnvelope,
     url: "mailto: onuhjorshh@gmail.com",
+    socialM: "Mail"
   },
   {
     icon: faGithub,
     url: "https://github.com/LahFlame",
+    socialM: "Git"
   },
   {
     icon: faLinkedin,
     url: "https://www.linkedin.com/in/onuh-joshua-869372138/",
+    socialM: "Linkedin"
   },
   {
     icon: faMedium,
     url: "https://medium.com",
+    socialM: "Medium"
   },
   {
     icon: faStackOverflow,
-    url: "https://stackoverflow.com",
+    url: "https://stackoverflow.com/users/21319900/joshua-onuh",
+    socialM: "StackOverflow"
   },
 ];
 
@@ -73,8 +79,8 @@ const Header = () => {
     <Box
       position="fixed"
       top={0}
-      left={0}
-      right={0}
+      width="100vw"
+      height={20}
       translateY={0}
       transitionProperty="transform"
       transitionDuration=".3s"
@@ -82,16 +88,39 @@ const Header = () => {
       backgroundColor="#18181b"
       zIndex={1}
       ref={headerRef}
+
     >
-      <Box color="white" maxWidth="1280px" margin="0 auto">
+      <Box color="white"  display={["flex","flex","block"]} justifyContent="space-between" alignItems={"center"} p={3}>
+        <VStack display={["Flex","flex","none"]}>
+          <Menu >
+            <MenuButton
+              as={IconButton}
+              aria-label='Options'
+              icon={<HamburgerIcon />}
+              variant='outline'
+              color={"grey"}
+            />
+              <MenuList backgroundColor={"white"} color="black" _hover={{color: "white",bgColor: "black"}} _focus={{color: "black"}} w={"100%"} position={"static"}>
+                
+                  { socials.map(social => 
+                      <MenuItem key={social.url}>
+                        <a href={social.url} target="_blank"><FontAwesomeIcon icon={social.icon}/> {social.socialM}</a>
+                      </MenuItem>
+                    )
+                  }
+                
+              </MenuList>
+            </Menu>
+          </VStack>  
         <HStack
-          px={16}
-          py={4}
+          px={[5,16]}
+          py={[2,4]}
           justifyContent="space-between"
           alignItems="center"
+          
         >
           <nav>
-            <HStack spacing={8}>
+            <HStack spacing={8} display={["none","none","flex"]}>
             {/* Add social media links based on the `socials` data */
               socials.map(social => {
                 return(
@@ -102,9 +131,9 @@ const Header = () => {
             </HStack>
           </nav>
           <nav>
-            <HStack spacing={8}>
-                <a href="#projects-section" onClick={handleClick("projects")}>Projects</a>
-                <a href="#contactme-section" onClick={handleClick("contactme")}>Contact Me</a>
+            <HStack spacing={5}>
+                <a href="#projects-section" onClick={handleClick("projects")} ><FontAwesomeIcon icon={faFolder}/>  Projects</a>
+                <a href="#contactme-section" onClick={handleClick("contactme")}><FontAwesomeIcon icon={faPhone} /> Contact Me</a>
             </HStack>
           </nav>
         </HStack>

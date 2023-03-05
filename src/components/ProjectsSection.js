@@ -1,6 +1,6 @@
 import React from "react";
 import FullScreenSection from "./FullScreenSection";
-import { Box, Heading } from "@chakra-ui/react";
+import { Box, Heading,HStack,SimpleGrid, VStack } from "@chakra-ui/react";
 import Card from "./Card";
 
 const projects = [
@@ -36,27 +36,29 @@ const ProjectsSection = () => {
       backgroundColor="#14532d"
       isDarkBackground
       p={8}
-      alignItems="flex-start"
+    
       spacing={8}
+      
     >
-      <Heading as="h1" id="projects-section">
-        Featured Projects
-      </Heading>
-      <Box
-        display="grid"
-        gridTemplateColumns="repeat(2,minmax(0,1fr))"
-        gridGap={8}
-      >
-        {projects.map((project) => (
-          <Card
-            key={project.title}
-            title={project.title}
-            description={project.description}
-            imageSrc={project.getImageSrc()}
-            url="https://github.com/rgommezz/react-native-offline"
-          />
-        ))}
-      </Box>
+      <VStack paddingX={[1,2,5,20]}>
+        <Heading as="h1" id="projects-section" marginBottom={10}>
+          Featured Projects
+        </Heading>
+        <SimpleGrid
+          columns={[1,1,2]}
+          gridGap={8}
+        >
+          {projects.map((project) => (
+            <Card
+              key={project.title}
+              title={project.title}
+              description={project.description}
+              imageSrc={project.getImageSrc()}
+              url="https://github.com/rgommezz/react-native-offline"
+            />
+          ))}
+        </SimpleGrid>
+      </VStack>
     </FullScreenSection>
   );
 };
