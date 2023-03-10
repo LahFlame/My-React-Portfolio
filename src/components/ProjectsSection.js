@@ -5,29 +5,34 @@ import Card from "./Card";
 
 const projects = [
   {
-    title: "React Space",
+    title: "Calculator",
     description:
-      "Handy tool belt to create amazing AR components in a React app, with redux integration via middleware️",
-    getImageSrc: () => require("../images/photo1.jpg"),
+      "An effective calculator application built using React classes and styled with SASS. It provides basic arithmetic functionalities as well as a well-designed UI for a good user experience.",
+    getImageSrc: () => require("../images/calculator-large.jpg"),
+    url: "https://meek-griffin-b1f6d1.netlify.app/"
   },
   {
-    title: "React Infinite Scroll",
+    title: "Todo-List",
     description:
-      "A scrollable bottom sheet with virtualisation support, native animations at 60 FPS and fully implemented in JS land 🔥️",
-    getImageSrc: () => require("../images/photo2.jpg"),
+      "A web version of the real world todo-list, takes infinite todos from the user as well as storing and displaying completed tasks for users to see. implemented using react hooks, styled with raw CSS",
+    getImageSrc: () => require("../images/todo-list.jpg"),
+    url: "https://rainbow-tarsier-ff2f79.netlify.app/"
   },
   {
-    title: "Photo Gallery",
+    title: "Monsters Rolodex",
     description:
-      "A One-stop shop for photographers to share and monetize their photos, allowing them to have a second source of income",
-    getImageSrc: () => require("../images/photo3.jpg"),
+      "A monsters collection built with a search feature aimed at narrow down the monster you wish to see",
+    getImageSrc: () => require("../images/monsters-rolodex.jpg"),
+    url: "https://lahflame.github.io/monsters-rolodex/"
   },
   {
-    title: "Event planner",
+    title: "Flames Clothing Store",
     description:
-      "A mobile application for leisure seekers to discover unique events and activities in their city with a few taps",
-    getImageSrc: () => require("../images/photo4.jpg"),
+      "Will be made available in a bit....",
+    getImageSrc: () => require("../images/flames-shop.jpg"),
+    url: ""
   },
+  
 ];
 
 const ProjectsSection = () => {
@@ -40,9 +45,9 @@ const ProjectsSection = () => {
       spacing={8}
       
     >
-      <VStack paddingX={[1,2,5,20]}>
+      <VStack paddingX={[1,13,5,20]}>
         <Heading as="h1" id="projects-section" marginBottom={10}>
-          Featured Projects
+          My Projects
         </Heading>
         <SimpleGrid
           columns={[1,1,2]}
@@ -54,7 +59,7 @@ const ProjectsSection = () => {
               title={project.title}
               description={project.description}
               imageSrc={project.getImageSrc()}
-              url="https://github.com/rgommezz/react-native-offline"
+              url={project.url}
             />
           ))}
         </SimpleGrid>

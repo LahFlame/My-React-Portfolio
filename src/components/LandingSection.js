@@ -13,18 +13,18 @@ const LandingSection = () => (
     justifyContent="center"
     alignItems="center"
     isDarkBackground
-    backgroundColor="#2A4365"
+    backgroundImage={require("../images/overlay.jpg")}
   >
     <VStack spacing={16} maxWidth="1024px">
       <VStack spacing={4}>
-        <Avatar name="lf" src={require("../images/flame.JPG")} size="2xl" />
+        <Avatar name="lf" src={require("../images/flame.jpeg")} size="2xl" />
         <Heading as="h4" size={["sm","md"]} noOfLines={1}>{greeting}</Heading>
       </VStack>
       <VStack spacing={6} textAlign="center">
-        <Heading as="h1" size={["xl","2xl","3xl"]} noOfLines={1}>
+        <Heading as="h1" size={["xl","2xl","2xl"]} noOfLines={1}>
           {bio1}
         </Heading>
-        <Heading as="h1" size={["xl","2xl","3xl"]} noOfLines={1}>
+        <Heading as="h1" size={["xl","2xl","2xl"]} noOfLines={1}>
           {bio2}
         </Heading>
       </VStack>

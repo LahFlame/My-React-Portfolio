@@ -52,7 +52,8 @@ const Header = () => {
        return; 
      } 
      if (prevScrollPos > currentScrollPos) { 
-       headerElement.style.transform = "translateY(0)"; 
+       headerElement.style.transform = "translateY(0)";
+       headerElement.style.backgroundColor = "#000"; 
      } else { 
        headerElement.style.transform = "translateY(-200px)"; 
      } 
@@ -85,13 +86,13 @@ const Header = () => {
       transitionProperty="transform"
       transitionDuration=".3s"
       transitionTimingFunction="ease-in-out"
-      backgroundColor="#18181b"
+      backgroundColor="transparent"
       zIndex={1}
       ref={headerRef}
 
     >
       <Box color="white"  display={["flex","flex","block"]} justifyContent="space-between" alignItems={"center"} p={3}>
-        <VStack display={["Flex","flex","none"]}>
+        <VStack display={["Flex","flex","none"]}  >
           <Menu >
             <MenuButton
               as={IconButton}
@@ -100,7 +101,7 @@ const Header = () => {
               variant='outline'
               color={"grey"}
             />
-              <MenuList backgroundColor={"white"} color="black" _hover={{color: "white",bgColor: "black"}} _focus={{color: "black"}} w={"100%"} position={"static"}>
+              <MenuList backgroundColor={"white"} color="black"   _hover={{color: "white",bgColor: "black"}} w={"100%"} position={"static"}>
                 
                   { socials.map(social => 
                       <MenuItem key={social.url}>

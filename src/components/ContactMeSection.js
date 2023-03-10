@@ -61,7 +61,7 @@ const LandingSection = () => {
         </Heading>
         <VStack >
           <form onSubmit={formik.handleSubmit}>
-            <VStack spacing={4} width={[310,500,700,900]} >
+            <VStack spacing={4} width={[310,500,700,700]} >
               <FormControl isInvalid={formik.errors.firstName} >
                 <FormLabel htmlFor="firstName">Name</FormLabel>
                 <Input
@@ -83,12 +83,12 @@ const LandingSection = () => {
               </FormControl>
               <FormControl>
                 <FormLabel htmlFor="type">Type of enquiry</FormLabel>
-                <Select id="type" name="type" {...formik.getFieldProps("type")}>
-                  <option value="hireMe">Freelance project proposal</option>
-                  <option value="openSource">
+                <Select id="type" name="type" {...formik.getFieldProps("type")} color="white">
+                  <option value="hireMe" style={{background: "#000"}}>Freelance project proposal</option>
+                  <option value="openSource" style={{background: "#000"}}>
                     Open source consultancy session
                   </option>
-                  <option value="other">Other</option>
+                  <option value="other" style={{background: "#000"}}>Other</option>
                 </Select>
               </FormControl>
               <FormControl isInvalid={formik.errors.comment}>
