@@ -21,7 +21,7 @@ const projects = [
   {
     title: "Monsters Rolodex",
     description:
-      "A monsters collection built with a search feature aimed at narrow down the monster you wish to see",
+      "A monsters collection built with a search feature aimed at narrowing down the monster you wish to see",
     getImageSrc: () => require("../images/monsters-rolodex.jpg"),
     url: "https://lahflame.github.io/monsters-rolodex/"
   },
